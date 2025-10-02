@@ -1,0 +1,288 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="3334pt" height="205pt" viewBox="0.00 0.00 3334.00 205.00">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 201)">
+<title>PreProcessorNet</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-201 3330.11,-201 3330.11,4 -4,4"/>
+<!-- In -->
+<g id="node1" class="node">
+<title>In</title>
+<polygon fill="none" stroke="black" points="71.58,-166 0,-166 0,-130 71.58,-130 71.58,-166"/>
+<text xml:space="preserve" text-anchor="middle" x="35.79" y="-145" font-family="Arial" font-size="10.00">Input frames</text>
+</g>
+<!-- CenterFrame -->
+<g id="node2" class="node">
+<title>CenterFrame</title>
+<polygon fill="none" stroke="black" points="309.01,-197 215.21,-197 215.21,-161 309.01,-161 309.01,-197"/>
+<text xml:space="preserve" text-anchor="middle" x="262.11" y="-176" font-family="Arial" font-size="10.00">Pick center frame</text>
+</g>
+<!-- In&#45;&gt;CenterFrame -->
+<g id="edge1" class="edge">
+<title>In-&gt;CenterFrame</title>
+<path fill="none" stroke="black" d="M71.84,-152.84C107.09,-157.72 162.05,-165.31 203.68,-171.06"/>
+<polygon fill="black" stroke="black" points="203.15,-174.52 213.54,-172.43 204.11,-167.59 203.15,-174.52"/>
+</g>
+<!-- Stem3D -->
+<g id="node3" class="node">
+<title>Stem3D</title>
+<polygon fill="none" stroke="black" points="197.21,-127 108.58,-127 108.58,-91 197.21,-91 197.21,-127"/>
+<text xml:space="preserve" text-anchor="middle" x="152.89" y="-106" font-family="Arial" font-size="10.00">3D Conv | ReLU</text>
+</g>
+<!-- In&#45;&gt;Stem3D -->
+<g id="edge2" class="edge">
+<title>In-&gt;Stem3D</title>
+<path fill="none" stroke="black" d="M71.95,-136.09C80.04,-133.35 88.83,-130.37 97.52,-127.42"/>
+<polygon fill="black" stroke="black" points="98.63,-130.74 106.98,-124.22 96.39,-124.11 98.63,-130.74"/>
+</g>
+<!-- Residual -->
+<g id="node19" class="node">
+<title>Residual</title>
+<polygon fill="none" stroke="black" points="3186.01,-182 3157.28,-164 3186.01,-146 3214.75,-164 3186.01,-182"/>
+<text xml:space="preserve" text-anchor="middle" x="3186.01" y="-161" font-family="Arial" font-size="10.00">Add</text>
+</g>
+<!-- CenterFrame&#45;&gt;Residual -->
+<g id="edge25" class="edge">
+<title>CenterFrame-&gt;Residual</title>
+<path fill="none" stroke="black" d="M309.46,-182.21C345.59,-184.43 397.04,-187 442.15,-187 442.15,-187 442.15,-187 3078.35,-187 3105.04,-187 3134.67,-180.03 3155.91,-173.77"/>
+<polygon fill="black" stroke="black" points="3156.81,-177.15 3165.33,-170.85 3154.74,-170.46 3156.81,-177.15"/>
+</g>
+<!-- Center -->
+<g id="node4" class="node">
+<title>Center</title>
+<polygon fill="none" stroke="black" points="424.15,-92 327.01,-92 327.01,-56 424.15,-56 424.15,-92"/>
+<text xml:space="preserve" text-anchor="middle" x="375.58" y="-71" font-family="Arial" font-size="10.00">Take center frame</text>
+</g>
+<!-- Stem3D&#45;&gt;Center -->
+<g id="edge3" class="edge">
+<title>Stem3D-&gt;Center</title>
+<path fill="none" stroke="black" d="M197.5,-102.09C231.31,-96.72 278.51,-89.24 315.68,-83.34"/>
+<polygon fill="black" stroke="black" points="316.04,-86.83 325.37,-81.8 314.94,-79.91 316.04,-86.83"/>
+</g>
+<!-- Enc1 -->
+<g id="node5" class="node">
+<title>Enc1</title>
+<polygon fill="none" stroke="black" points="689.48,-83 461.15,-83 461.15,-47 689.48,-47 689.48,-83"/>
+<text xml:space="preserve" text-anchor="middle" x="575.32" y="-62" font-family="Arial" font-size="10.00">Enc 1: 2D Conv | Group norm | ReLU | MaxPool</text>
+</g>
+<!-- Center&#45;&gt;Enc1 -->
+<g id="edge4" class="edge">
+<title>Center-&gt;Enc1</title>
+<path fill="none" stroke="black" d="M424.45,-71.82C432.32,-71.46 440.79,-71.08 449.56,-70.68"/>
+<polygon fill="black" stroke="black" points="449.45,-74.19 459.28,-70.24 449.13,-67.19 449.45,-74.19"/>
+</g>
+<!-- Enc2 -->
+<g id="node6" class="node">
+<title>Enc2</title>
+<polygon fill="none" stroke="black" points="954.8,-83 726.48,-83 726.48,-47 954.8,-47 954.8,-83"/>
+<text xml:space="preserve" text-anchor="middle" x="840.64" y="-62" font-family="Arial" font-size="10.00">Enc 2: 2D Conv | Group norm | ReLU | MaxPool</text>
+</g>
+<!-- Enc1&#45;&gt;Enc2 -->
+<g id="edge5" class="edge">
+<title>Enc1-&gt;Enc2</title>
+<path fill="none" stroke="black" d="M689.9,-65C698.13,-65 706.46,-65 714.75,-65"/>
+<polygon fill="black" stroke="black" points="714.5,-68.5 724.5,-65 714.5,-61.5 714.5,-68.5"/>
+</g>
+<!-- Dec3 -->
+<g id="node11" class="node">
+<title>Dec3</title>
+<polygon fill="none" stroke="black" points="1935.89,-77 1796.68,-77 1796.68,-33 1935.89,-33 1935.89,-77"/>
+<text xml:space="preserve" text-anchor="middle" x="1866.28" y="-64" font-family="Arial" font-size="10.00">UpConv: Conv Transpose | </text>
+<text xml:space="preserve" text-anchor="middle" x="1866.28" y="-52" font-family="Arial" font-size="10.00">skip1 → 2D Conv | </text>
+<text xml:space="preserve" text-anchor="middle" x="1866.28" y="-40" font-family="Arial" font-size="10.00">Group norm | ReLU</text>
+</g>
+<!-- Enc1&#45;&gt;Dec3 -->
+<g id="edge13" class="edge">
+<title>Enc1-&gt;Dec3</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M622.09,-46.55C673.96,-27.33 761.47,0 839.64,0 839.64,0 839.64,0 1691.07,0 1732.28,0 1776.54,-14.17 1810.13,-28.12"/>
+<polygon fill="black" stroke="black" points="1808.69,-31.31 1819.26,-32.03 1811.45,-24.88 1808.69,-31.31"/>
+<text xml:space="preserve" text-anchor="middle" x="1332.19" y="-2.7" font-family="Arial" font-size="9.00">skip1</text>
+</g>
+<!-- Enc3 -->
+<g id="node7" class="node">
+<title>Enc3</title>
+<polygon fill="none" stroke="black" points="1220.13,-112 991.8,-112 991.8,-76 1220.13,-76 1220.13,-112"/>
+<text xml:space="preserve" text-anchor="middle" x="1105.96" y="-91" font-family="Arial" font-size="10.00">Enc 3: 2D Conv | Group norm | ReLU | MaxPool</text>
+</g>
+<!-- Enc2&#45;&gt;Enc3 -->
+<g id="edge6" class="edge">
+<title>Enc2-&gt;Enc3</title>
+<path fill="none" stroke="black" d="M955.22,-77.51C963.45,-78.42 971.78,-79.33 980.07,-80.25"/>
+<polygon fill="black" stroke="black" points="979.51,-83.71 989.84,-81.32 980.28,-76.75 979.51,-83.71"/>
+</g>
+<!-- Dec2 -->
+<g id="node10" class="node">
+<title>Dec2</title>
+<polygon fill="none" stroke="black" points="1759.68,-77 1620.47,-77 1620.47,-33 1759.68,-33 1759.68,-77"/>
+<text xml:space="preserve" text-anchor="middle" x="1690.07" y="-64" font-family="Arial" font-size="10.00">UpConv: Conv Transpose | </text>
+<text xml:space="preserve" text-anchor="middle" x="1690.07" y="-52" font-family="Arial" font-size="10.00">skip2 → 2D Conv | </text>
+<text xml:space="preserve" text-anchor="middle" x="1690.07" y="-40" font-family="Arial" font-size="10.00">Group norm | ReLU</text>
+</g>
+<!-- Enc2&#45;&gt;Dec2 -->
+<g id="edge12" class="edge">
+<title>Enc2-&gt;Dec2</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M955.26,-53.83C1001.63,-50.16 1055.82,-47 1104.96,-47 1104.96,-47 1104.96,-47 1514.87,-47 1545.47,-47 1579.07,-48.25 1608.52,-49.76"/>
+<polygon fill="black" stroke="black" points="1608.33,-53.25 1618.5,-50.29 1608.7,-46.26 1608.33,-53.25"/>
+<text xml:space="preserve" text-anchor="middle" x="1332.19" y="-49.7" font-family="Arial" font-size="9.00">skip2</text>
+</g>
+<!-- Bottleneck -->
+<g id="node8" class="node">
+<title>Bottleneck</title>
+<polygon fill="none" stroke="black" points="1407.26,-159 1257.13,-159 1257.13,-123 1407.26,-123 1407.26,-159"/>
+<text xml:space="preserve" text-anchor="middle" x="1332.19" y="-138" font-family="Arial" font-size="10.00">2D Conv | Group norm | ReLU</text>
+</g>
+<!-- Enc3&#45;&gt;Bottleneck -->
+<g id="edge7" class="edge">
+<title>Enc3-&gt;Bottleneck</title>
+<path fill="none" stroke="black" d="M1194.94,-112.44C1211.75,-115.96 1229.32,-119.65 1246.04,-123.15"/>
+<polygon fill="black" stroke="black" points="1244.9,-126.49 1255.4,-125.11 1246.33,-119.64 1244.9,-126.49"/>
+</g>
+<!-- Dec1 -->
+<g id="node9" class="node">
+<title>Dec1</title>
+<polygon fill="none" stroke="black" points="1583.47,-119 1444.26,-119 1444.26,-75 1583.47,-75 1583.47,-119"/>
+<text xml:space="preserve" text-anchor="middle" x="1513.87" y="-106" font-family="Arial" font-size="10.00">UpConv: Conv Transpose | </text>
+<text xml:space="preserve" text-anchor="middle" x="1513.87" y="-94" font-family="Arial" font-size="10.00">skip3 → 2D Conv | </text>
+<text xml:space="preserve" text-anchor="middle" x="1513.87" y="-82" font-family="Arial" font-size="10.00">Group norm | ReLU</text>
+</g>
+<!-- Enc3&#45;&gt;Dec1 -->
+<g id="edge11" class="edge">
+<title>Enc3-&gt;Dec1</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M1220.57,-94.84C1287.99,-95.34 1371.85,-95.96 1432.43,-96.41"/>
+<polygon fill="black" stroke="black" points="1432.3,-99.9 1442.33,-96.48 1432.36,-92.9 1432.3,-99.9"/>
+<text xml:space="preserve" text-anchor="middle" x="1332.19" y="-98.92" font-family="Arial" font-size="9.00">skip3</text>
+</g>
+<!-- Bottleneck&#45;&gt;Dec1 -->
+<g id="edge8" class="edge">
+<title>Bottleneck-&gt;Dec1</title>
+<path fill="none" stroke="black" d="M1407.57,-122.79C1415.96,-120.73 1424.54,-118.63 1432.99,-116.56"/>
+<polygon fill="black" stroke="black" points="1433.67,-120 1442.55,-114.22 1432,-113.2 1433.67,-120"/>
+</g>
+<!-- Dec1&#45;&gt;Dec2 -->
+<g id="edge9" class="edge">
+<title>Dec1-&gt;Dec2</title>
+<path fill="none" stroke="black" d="M1583.97,-80.34C1592.22,-78.35 1600.71,-76.3 1609.1,-74.28"/>
+<polygon fill="black" stroke="black" points="1609.68,-77.74 1618.58,-71.99 1608.04,-70.94 1609.68,-77.74"/>
+</g>
+<!-- Dec2&#45;&gt;Dec3 -->
+<g id="edge10" class="edge">
+<title>Dec2-&gt;Dec3</title>
+<path fill="none" stroke="black" d="M1760.18,-55C1768.34,-55 1776.72,-55 1785.02,-55"/>
+<polygon fill="black" stroke="black" points="1784.75,-58.5 1794.75,-55 1784.75,-51.5 1784.75,-58.5"/>
+</g>
+<!-- DCMb1 -->
+<g id="node12" class="node">
+<title>DCMb1</title>
+<polygon fill="none" stroke="black" points="2222.61,-141 1978.17,-141 1978.17,-105 2222.61,-105 2222.61,-141"/>
+<text xml:space="preserve" text-anchor="middle" x="2100.39" y="-126" font-family="Arial" font-size="10.00">Dual-branch Content-aware Module Branch A (blur)</text>
+<text xml:space="preserve" text-anchor="middle" x="2100.39" y="-114" font-family="Arial" font-size="10.00">2D Conv  | Group norm | ReLU</text>
+</g>
+<!-- Dec3&#45;&gt;DCMb1 -->
+<g id="edge14" class="edge">
+<title>Dec3-&gt;DCMb1</title>
+<path fill="none" stroke="black" d="M1920.16,-77.44C1936.83,-84 1955.45,-90.79 1972.89,-96 1979.59,-98 1986.54,-99.92 1993.58,-101.74"/>
+<polygon fill="black" stroke="black" points="1992.66,-105.12 2003.21,-104.15 1994.36,-98.33 1992.66,-105.12"/>
+</g>
+<!-- DCMb2 -->
+<g id="node13" class="node">
+<title>DCMb2</title>
+<polygon fill="none" stroke="black" points="2227.9,-87 1972.89,-87 1972.89,-51 2227.9,-51 2227.9,-87"/>
+<text xml:space="preserve" text-anchor="middle" x="2100.39" y="-72" font-family="Arial" font-size="10.00">Dual-branch Content-aware Module Branch B (edges)</text>
+<text xml:space="preserve" text-anchor="middle" x="2100.39" y="-60" font-family="Arial" font-size="10.00">2D Conv | Group norm | ReLU</text>
+</g>
+<!-- Dec3&#45;&gt;DCMb2 -->
+<g id="edge15" class="edge">
+<title>Dec3-&gt;DCMb2</title>
+<path fill="none" stroke="black" d="M1936.29,-59.16C1944.29,-59.64 1952.63,-60.15 1961.15,-60.66"/>
+<polygon fill="black" stroke="black" points="1960.72,-64.14 1970.91,-61.25 1961.14,-57.15 1960.72,-64.14"/>
+</g>
+<!-- Att -->
+<g id="node15" class="node">
+<title>Att</title>
+<polygon fill="none" stroke="black" points="2440.88,-52 2245.9,-52 2245.9,-16 2440.88,-16 2440.88,-52"/>
+<text xml:space="preserve" text-anchor="middle" x="2343.39" y="-37" font-family="Arial" font-size="10.00">Channel attention</text>
+<text xml:space="preserve" text-anchor="middle" x="2343.39" y="-25" font-family="Arial" font-size="10.00">Global average pool → ReLU → Sigmoid</text>
+</g>
+<!-- Dec3&#45;&gt;Att -->
+<g id="edge16" class="edge">
+<title>Dec3-&gt;Att</title>
+<path fill="none" stroke="black" d="M1936.2,-45.5C1948.4,-44.11 1961,-42.86 1972.89,-42 2060.7,-35.66 2160.52,-33.82 2234.26,-33.47"/>
+<polygon fill="black" stroke="black" points="2233.91,-36.98 2243.89,-33.44 2233.88,-29.98 2233.91,-36.98"/>
+</g>
+<!-- DCMcat -->
+<g id="node14" class="node">
+<title>DCMcat</title>
+<polygon fill="none" stroke="black" points="2499.44,-123 2458.88,-105 2499.44,-87 2539.99,-105 2499.44,-123"/>
+<text xml:space="preserve" text-anchor="middle" x="2499.44" y="-102" font-family="Arial" font-size="10.00">Concat</text>
+</g>
+<!-- DCMb1&#45;&gt;DCMcat -->
+<g id="edge17" class="edge">
+<title>DCMb1-&gt;DCMcat</title>
+<path fill="none" stroke="black" d="M2222.95,-117.49C2299.58,-114.02 2394.31,-109.72 2450.36,-107.18"/>
+<polygon fill="black" stroke="black" points="2450.37,-110.68 2460.2,-106.73 2450.05,-103.69 2450.37,-110.68"/>
+</g>
+<!-- DCMb2&#45;&gt;DCMcat -->
+<g id="edge18" class="edge">
+<title>DCMb2-&gt;DCMcat</title>
+<path fill="none" stroke="black" d="M2228.38,-80.51C2305.54,-87.51 2399.33,-96.01 2453.62,-100.94"/>
+<polygon fill="black" stroke="black" points="2453.13,-104.41 2463.41,-101.82 2453.76,-97.44 2453.13,-104.41"/>
+</g>
+<!-- Gate -->
+<g id="node16" class="node">
+<title>Gate</title>
+<polygon fill="none" stroke="black" points="2693.64,-123 2576.99,-105 2693.64,-87 2810.29,-105 2693.64,-123"/>
+<text xml:space="preserve" text-anchor="middle" x="2693.64" y="-102" font-family="Arial" font-size="10.00">Channel-wise multiplication</text>
+</g>
+<!-- DCMcat&#45;&gt;Gate -->
+<g id="edge19" class="edge">
+<title>DCMcat-&gt;Gate</title>
+<path fill="none" stroke="black" d="M2541.2,-105C2547.78,-105 2554.89,-105 2562.32,-105"/>
+<polygon fill="black" stroke="black" points="2562.29,-108.5 2572.29,-105 2562.29,-101.5 2562.29,-108.5"/>
+</g>
+<!-- Att&#45;&gt;Gate -->
+<g id="edge20" class="edge">
+<title>Att-&gt;Gate</title>
+<path fill="none" stroke="black" d="M2434.98,-52.47C2496.5,-65.01 2576.26,-81.27 2630.64,-92.36"/>
+<polygon fill="black" stroke="black" points="2629.86,-95.77 2640.36,-94.34 2631.26,-88.91 2629.86,-95.77"/>
+</g>
+<!-- Fuse -->
+<g id="node17" class="node">
+<title>Fuse</title>
+<polygon fill="none" stroke="black" points="2997.42,-159 2847.29,-159 2847.29,-123 2997.42,-123 2997.42,-159"/>
+<text xml:space="preserve" text-anchor="middle" x="2922.35" y="-138" font-family="Arial" font-size="10.00">2D Conv | Group norm | ReLU</text>
+</g>
+<!-- Gate&#45;&gt;Fuse -->
+<g id="edge21" class="edge">
+<title>Gate-&gt;Fuse</title>
+<path fill="none" stroke="black" d="M2753.02,-114.27C2778.16,-118.26 2808.06,-123.01 2835.63,-127.39"/>
+<polygon fill="black" stroke="black" points="2834.96,-130.83 2845.38,-128.94 2836.06,-123.91 2834.96,-130.83"/>
+</g>
+<!-- OutConv -->
+<g id="node18" class="node">
+<title>OutConv</title>
+<polygon fill="none" stroke="black" points="3120.28,-159 3034.42,-159 3034.42,-123 3120.28,-123 3120.28,-159"/>
+<text xml:space="preserve" text-anchor="middle" x="3077.35" y="-138" font-family="Arial" font-size="10.00">2D Conv | Tanh</text>
+</g>
+<!-- Fuse&#45;&gt;OutConv -->
+<g id="edge22" class="edge">
+<title>Fuse-&gt;OutConv</title>
+<path fill="none" stroke="black" d="M2997.61,-141C3006,-141 3014.43,-141 3022.48,-141"/>
+<polygon fill="black" stroke="black" points="3022.46,-144.5 3032.46,-141 3022.46,-137.5 3022.46,-144.5"/>
+</g>
+<!-- OutConv&#45;&gt;Residual -->
+<g id="edge23" class="edge">
+<title>OutConv-&gt;Residual</title>
+<path fill="none" stroke="black" d="M3120.51,-150.09C3131.22,-152.4 3142.57,-154.85 3152.7,-157.03"/>
+<polygon fill="black" stroke="black" points="3151.95,-160.45 3162.46,-159.14 3153.42,-153.61 3151.95,-160.45"/>
+</g>
+<!-- Out -->
+<g id="node20" class="node">
+<title>Out</title>
+<polygon fill="none" stroke="black" points="3326.11,-182 3251.75,-182 3251.75,-146 3326.11,-146 3326.11,-182"/>
+<text xml:space="preserve" text-anchor="middle" x="3288.93" y="-161" font-family="Arial" font-size="10.00">Output frame</text>
+</g>
+<!-- Residual&#45;&gt;Out -->
+<g id="edge24" class="edge">
+<title>Residual-&gt;Out</title>
+<path fill="none" stroke="black" d="M3215.66,-164C3223.19,-164 3231.52,-164 3239.76,-164"/>
+<polygon fill="black" stroke="black" points="3239.76,-167.5 3249.76,-164 3239.76,-160.5 3239.76,-167.5"/>
+</g>
+</g>
+</svg>
