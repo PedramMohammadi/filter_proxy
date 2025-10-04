@@ -5,6 +5,7 @@ import random
 import pandas as pd
 import torch
 from torch.utils.data import Dataset
+from torchvision import transforms
 import torchvision.io as io
 from torchvision.io import ImageReadMode
 
