@@ -2,7 +2,7 @@
 
 This repository provides a deep learning-based pre-processing algorithm that enhances perceptual quality of processed images and video frames. The model learns to transform input frames to optimize for downstream quality metrics while maintaining visual fidelity.
 
-**Project status:** Training complete. Inference and evaluation in progress.
+**Project status:** Training and inferencne are completed. Evaluation results are available in its respective folder in this directory.
 
 **Model Architecture**
 ![Filter Proxy architecture](./architecture.svg "Filter Proxy architecture")
